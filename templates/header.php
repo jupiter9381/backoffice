@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include("config/base.php");
+    include("config/db.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,6 +27,10 @@
     <!-- Animation Css -->
     <link href="<?= ASSET_URL?>plugins/animate-css/animate.css" rel="stylesheet" />
 
+    <link href="<?= ASSET_URL?>plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="<?= ASSET_URL?>plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="<?= ASSET_URL?>plugins/daterange-picker/css/daterange-picker.css" rel="stylesheet" />
     <!-- Morris Chart Css-->
     <link href="<?= ASSET_URL?>plugins/morrisjs/morris.css" rel="stylesheet" />
 

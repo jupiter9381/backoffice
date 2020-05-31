@@ -34,6 +34,12 @@
                         <span>Home</span>
                     </a>
                 </li>
+                <li>
+                    <a href="<?= SITE_URL?>transaction.php">
+                        <i class="material-icons">home</i>
+                        <span>Transaction</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->
