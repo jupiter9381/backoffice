@@ -7,7 +7,7 @@
                 <img src="<?= ASSET_IMAGE_URL?>user.png" width="48" height="48" alt="User" />
             </div>
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $_SESSION['username']?></div>
                 <div class="email">john.doe@example.com</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -28,16 +28,40 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
-                    <a href="index.html">
+                <li class="<?php if($page_name == 'home') echo 'active';?>">
+                    <a href="<?= SITE_URL?>dashboard.php">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?php if($page_name == 'merchant') echo 'active';?>">
+                    <a href="<?= SITE_URL?>merchant.php">
+                        <i class="material-icons">supervisor_account</i>
+                        <span>Merchant</span>
+                    </a>
+                </li>
+                <li class="<?php if($page_name == 'user') echo 'active';?>">
+                    <a href="<?= SITE_URL?>user.php">
+                        <i class="material-icons">supervisor_account</i>
+                        <span>User</span>
+                    </a>
+                </li>
+                <li class="<?php if($page_name == 'transaction') echo 'active';?>">
                     <a href="<?= SITE_URL?>transaction.php">
                         <i class="material-icons">home</i>
                         <span>Transaction</span>
+                    </a>
+                </li>
+                <li class="<?php if($page_name == 'withdraw') echo 'active';?>">
+                    <a href="<?= SITE_URL?>withdraw.php">
+                        <i class="material-icons">inbox</i>
+                        <span>Withdraw</span>
+                    </a>
+                </li>
+                <li class="<?php if($page_name == 'summary') echo 'active';?>">
+                    <a href="<?= SITE_URL?>summary.php">
+                        <i class="material-icons">inbox</i>
+                        <span>Summary</span>
                     </a>
                 </li>
             </ul>

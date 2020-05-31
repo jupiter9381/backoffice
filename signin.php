@@ -12,6 +12,7 @@
 		if($result->num_rows > 0) {
 			$user = $result->fetch_array(MYSQLI_ASSOC);
 			$_SESSION['usertype'] = $user['usertype'];
+            $_SESSION['username'] = $user['username'];
 			header('Location: '.SITE_URL.'dashboard.php');
 		}
 	}

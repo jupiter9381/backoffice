@@ -29,12 +29,14 @@ CREATE TABLE `merchants` (
   `email` varchar(50) DEFAULT NULL,
   `charges_fee` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `merchants` */
 
 insert  into `merchants`(`id`,`name`,`shortname`,`created_date`,`created_by`,`email`,`charges_fee`) values 
-(1,'mch1','merchant','2020-05-29 08:55:20',NULL,'merchant1@example.com',5);
+(1,'mch1','merchant','2020-05-29 08:55:20',NULL,'merchant1@example.com',5),
+(3,'mch2',NULL,'2020-05-31 11:24:20',NULL,'merchant2@example.com',8),
+(4,'mch3',NULL,'2020-05-31 11:24:54',NULL,'merchant3@example.com',7);
 
 /*Table structure for table `orders` */
 
@@ -140,19 +142,20 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
   `userpassword` varchar(50) DEFAULT NULL,
-  `usertype` enum('admin','user','merchant') DEFAULT NULL,
+  `usertype` enum('admin','user','superadmin') DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `last_login_time` datetime DEFAULT NULL,
   `change_password_time` datetime DEFAULT NULL,
   `merchantid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000003 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1000004 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`userpassword`,`usertype`,`created_date`,`last_login_time`,`change_password_time`,`merchantid`) values 
-(1000000,'jupiter','0192023a7bbd73250516f069df18b500','admin','2020-05-29 07:42:54','2020-05-29 07:42:57','2020-05-29 07:43:00',NULL),
-(1000001,'jupiter2','0192023a7bbd73250516f069df18b500','user',NULL,NULL,NULL,1);
+(1000000,'jupiter','0192023a7bbd73250516f069df18b500','superadmin','2020-05-29 07:42:54','2020-05-29 07:42:57','2020-05-29 07:43:00',NULL),
+(1000001,'jupiter2','0192023a7bbd73250516f069df18b500','user',NULL,NULL,NULL,1),
+(1000003,'jupiter3','0192023a7bbd73250516f069df18b500','admin','2020-06-01 12:07:00',NULL,NULL,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

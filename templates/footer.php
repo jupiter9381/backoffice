@@ -25,11 +25,30 @@
     <script src="<?= ASSET_URL?>plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="<?= ASSET_URL?>plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="<?= ASSET_URL?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    
+    <script src="<?= ASSET_URL?>plugins/jquery-validation/jquery.validate.js"></script>
 
+    <script src="<?= ASSET_URL?>plugins/jquery-countto/jquery.countTo.js"></script>
     <!-- Custom Js -->
     <script src="<?= ASSET_URL?>js/admin.js"></script>
-    <script src="<?= ASSET_URL?>js/pages/transaction.js"></script>
-
+    <?php if($page_name == "home"){?>
+        <script src="<?= ASSET_URL?>js/pages/dashboard.js"></script>
+    <?php } ?>
+    <?php if($page_name == "transaction"){?>
+        <script src="<?= ASSET_URL?>js/pages/transaction.js"></script>
+    <?php } ?>
+    <?php if($page_name == "merchant") {?> 
+        <script src="<?= ASSET_URL?>js/pages/merchant.js"></script>
+    <?php }?>
+    <?php if($page_name == "user") {?> 
+        <script src="<?= ASSET_URL?>js/pages/user.js"></script>
+    <?php }?>
+    <?php if($page_name == "summary") {?> 
+        <script src="<?= ASSET_URL?>js/pages/summary.js"></script>
+    <?php }?>
+    <?php if($page_name == "withdraw") {?> 
+        <script src="<?= ASSET_URL?>js/pages/withdraw.js"></script>
+    <?php }?>
 </body>
 
 </html>

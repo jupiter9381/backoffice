@@ -1,6 +1,7 @@
 <?php 
 	include_once('templates/header.php');
 
+	$page_name = 'transaction';
 	$sql = "SELECT * FROM orders";
 	$result = $conn->query($sql);
 ?>
