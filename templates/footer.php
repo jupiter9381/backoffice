@@ -49,6 +49,9 @@
     <?php if($page_name == "withdraw") {?> 
         <script src="<?= ASSET_URL?>js/pages/withdraw.js"></script>
     <?php }?>
+    <?php if($page_name == "profile") {?> 
+        <script src="<?= ASSET_URL?>js/pages/profile.js"></script>
+    <?php }?>
 </body>
 
 </html>

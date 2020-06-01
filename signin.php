@@ -13,6 +13,7 @@
 			$user = $result->fetch_array(MYSQLI_ASSOC);
 			$_SESSION['usertype'] = $user['usertype'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['userid'] = $user['id'];
 			header('Location: '.SITE_URL.'dashboard.php');
 		}
 	}
