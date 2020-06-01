@@ -4,18 +4,20 @@
 
 	session_start();
 	if(isset($_POST['signin'])) {
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$sql = "SELECT * FROM users WHERE username='$username' AND userpassword = MD5('$password')";
-		$result = $conn->query($sql);
-
-		if($result->num_rows > 0) {
-			$user = $result->fetch_array(MYSQLI_ASSOC);
-			$_SESSION['usertype'] = $user['usertype'];
+        $username = $_POST['username'];
+        $password = md5($_POST['password']);
+        $query = $conn->prepare("SELECT * FROM users WHERE username= ? AND userpassword = ?");
+        $query->bind_param("ss", $username, $password);
+        $query->execute();
+        $result = $query->get_result();
+        if($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            $_SESSION['usertype'] = $user['usertype'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['userid'] = $user['id'];
-			header('Location: '.SITE_URL.'dashboard.php');
-		}
+            $_SESSION['merchantid'] = $user['merchantid'];
+            header('Location: '.SITE_URL.'dashboard.php');
+        }
 	}
 ?>
 <!DOCTYPE html>

@@ -2,6 +2,20 @@
 	include_once('templates/header.php');
 
 	$page_name = "home";
+    $merchantid = $_SESSION['merchantid'];
+    $today = date('Ymd');
+    $query = $conn->prepare("SELECT * FROM summarylist WHERE merchantid= ? AND summarydate = ?");
+    $query->bind_param("ss", $merchantid, $today);
+    $query->execute();
+    $result = $query->get_result();
+    if($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+        $total = $data['summarytotalamount'];
+        $balance = $data['summarytotalsuccessamt'];
+    } else {
+        $total = 0;
+        $balance = 0;
+    }
 ?>
 
 <section class="content">
@@ -16,8 +30,8 @@
                         <i class="material-icons">help</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW TICKETS</div>
-                        <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">Total</div>
+                        <div class="number count-to" data-from="0" data-to="<?= $total?>" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>
@@ -27,8 +41,8 @@
                         <i class="material-icons">forum</i>
                     </div>
                     <div class="content">
-                        <div class="text">NEW COMMENTS</div>
-                        <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="text">Balance</div>
+                        <div class="number count-to" data-from="0" data-to="<?= $balance?>" data-speed="1000" data-fresh-interval="20"></div>
                     </div>
                 </div>
             </div>

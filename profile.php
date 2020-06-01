@@ -7,8 +7,10 @@
     if(isset($_POST['update_profile'])) {
         $userid = $_POST['userid'];
         $password = md5($_POST['password']);
-        $sql = "UPDATE users SET userpassword = '$password' WHERE id = '$userid'";
-        $conn->query($sql);
+        $query = $conn->prepare("UPDATE users SET userpassword = ? WHERE id = ?");
+        $query->bind_param("ss", $password, $userid);
+        $query->execute();
+        $query->close();
         header('Location: '.SITE_URL.'dashboard.php');
     }
 ?>

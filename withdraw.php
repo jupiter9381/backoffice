@@ -20,6 +20,46 @@
         				<h2>Withdraw List</h2>
         			</div>
         			<div class="body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">email</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input class="form-control filter-orderid" placeholder="Order ID">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">email</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <select class="form-control show-tick filter-status">
+                                            <option value="" disabled selected>Select Status</option>
+                                            <option value="">All</option>
+                                            <option>Pending</option>
+                                            <option>Success</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="material-icons">email</i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input class="form-control filter-bank" placeholder="Bank account">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="daterange" value=""  class="form-control filter-date" />
+                            </div>
+                        </div>
         				<div class="table-responsive">
         					<table class="table table-bordered table-striped table-hover table_withdraw dataTable">
         						<thead>
