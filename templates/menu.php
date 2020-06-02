@@ -36,12 +36,14 @@
                         <span>Merchant</span>
                     </a>
                 </li>
+                <?php if($_SESSION['usertype'] == "admin") {?> 
                 <li class="<?php if($page_name == 'user') echo 'active';?>">
                     <a href="<?= SITE_URL?>user.php">
                         <i class="material-icons">supervisor_account</i>
                         <span>User</span>
                     </a>
                 </li>
+                <?php }?>
                 <li class="<?php if($page_name == 'transaction') echo 'active';?>">
                     <a href="<?= SITE_URL?>transaction.php">
                         <i class="material-icons">home</i>

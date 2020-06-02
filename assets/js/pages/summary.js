@@ -3,7 +3,9 @@ $(function () {
 		dom: 'Bfrtip',
         responsive: true,
         buttons: [
-        ]
+        	'csv', 'excel', 'pdf'
+        ],
+        "pageLength": 20
     });
 
 });

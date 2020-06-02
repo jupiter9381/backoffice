@@ -2,8 +2,17 @@
 	include_once('templates/header.php');
 
 	$page_name = 'transaction';
-	$sql = "SELECT * FROM orders";
+	$sql = "SELECT * FROM orders ORDER BY orderid";
 	$result = $conn->query($sql);
+
+    if(isset($_POST['change_status'])) {
+        $orderid = $_POST['orderid'];
+        $query = $conn->prepare("UPDATE orders SET orderstatus = 'Success' WHERE orderid = ?");
+        $query->bind_param("s", $orderid);
+        $query->execute();
+        $query->close();
+        header('Location: '.SITE_URL.'transaction.php');
+    }
 ?>
 
 <?php include_once('templates/menu.php'); ?>
@@ -71,6 +80,7 @@
         								<th>User IP</th>
         								<th>Status</th>
         								<th>Created Date Time</th>
+                                        <th>Action</th>
         								<!-- <th></th> -->
         							</tr>
         						</thead>
@@ -84,6 +94,11 @@
         								<td><?= $row['userip'];?></td>
         								<td><?= $row['orderstatus'];?></td>
         								<td><?= $row['createddatetime'];?></td>
+                                        <td>
+                                            <?php if($row['orderstatus'] == "Pending"){?>
+                                                <button class="btn btn-primary change_status" orderid="<?= $row['orderid'];?>" data-toggle="modal" data-target="#statusModal">Change</button>
+                                            <?php }?>
+                                        </td>
         							</tr>
         							<?php }?>
         						</tbody>
@@ -95,4 +110,23 @@
         </div>
 	</div>
 </section>
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="statusModalLabel">Confirm</h4>
+            </div>
+            <form method='POST' id="statusForm">
+                <div class="modal-body">
+                    <input type="hidden" name="orderid" value="">
+                    <h4>Are you sure to change status?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-link waves-effect" name="change_status">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <?php include_once('templates/footer.php');?>

@@ -2,6 +2,7 @@
     session_start();
     include("config/base.php");
     include("config/db.php");
+    if(!$_SESSION) header('Location: '.SITE_URL.'signin.php');
 ?>
 <!DOCTYPE html>
 <html>

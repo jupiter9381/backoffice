@@ -7,7 +7,8 @@ $(function () {
         responsive: true,
         buttons: [
             'csv', 'excel', 'pdf'
-        ]
+        ],
+        "pageLength": 20
     });
 
     $(".filter-status").change(function(e){
@@ -29,6 +30,10 @@ $(function () {
         startDate = start;
         endDate = end;
         table.draw();
+    });
+
+    $(".js-exportable").on("click",".change_status", function(){
+        $("input[name='orderid']").val($(this).attr('orderid'));
     });
 });
 

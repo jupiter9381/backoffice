@@ -2,10 +2,21 @@ var endDate = moment().startOf('day');
 var startDate = moment().startOf('day').subtract(1, 'month');
 $(function () {
 	var table = $('.table_withdraw').DataTable({
+        columnDefs: [
+            { type: 'chinese-string', targets: 4 }
+        ],
 		dom: 'Bfrtip',
         responsive: true,
         buttons: [
-        ]
+            'csv', 'excel', 'pdf',
+            {
+                text: 'Add Withdraw',
+                action: function ( e, dt, node, config ) {
+                    $("#withdrawModal").modal('show');
+                }
+            }
+        ],
+        "pageLength": 20
     });
 
 	$(".filter-status").change(function(e){
@@ -15,7 +26,7 @@ $(function () {
         table.column(0).search($(this).val()).draw();
     });
     $(".filter-bank").keyup(function(e){
-        table.column(3).search($(this).val()).draw();
+        table.column(4).search($(this).val()).draw();
     });
 
     $('input[name="daterange"]').daterangepicker({

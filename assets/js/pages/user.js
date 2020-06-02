@@ -9,7 +9,8 @@ $(function () {
                     $("#userModal").modal('show');
                 }
         	}
-        ]
+        ],
+        "pageLength": 20
     });
 
     $('#userup').validate({

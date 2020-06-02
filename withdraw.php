@@ -2,8 +2,24 @@
 	include_once('templates/header.php');
 
 	$page_name = 'withdraw';
-	$sql = "SELECT * FROM payouttransaction";
+	$sql = "SELECT * FROM payouttransaction ORDER BY createddatetime" ;
 	$result = $conn->query($sql);
+
+    if(isset($_POST['add_withdraw'])) {
+        $orderid = $_POST['orderid'];
+        $amount = $_POST['amount'];
+        $bankname = $_POST['bankname'];
+        $bankaccountno = $_POST['bankaccountno'];
+        $bankaccountname = $_POST['bankaccountname'];
+        $status = $_POST['status'];
+        $datetime = date('Y-m-d h:i:s');
+
+        $query = $conn->prepare("INSERT INTO payouttransaction(merchantpayoutid, payoutamount, payoutstatus, bankname, accountholdername, accountno, createddatetime, updateddatetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param("sssssss", $orderid, $amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
+        $query->execute();
+        $query->close();
+        header('Location: '.SITE_URL.'withdraw.php');
+    }
 ?>
 
 <?php include_once('templates/menu.php'); ?>
@@ -96,4 +112,69 @@
         </div>
 	</div>
 </section>
+<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Withdraw Form</h4>
+            </div>
+            <form method='POST'>
+                <div class="modal-body">
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Order Id" name="orderid">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="number" class="form-control" placeholder="Withdraw amount" name="amount">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Bank name" name="bankname">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Bank account number" name="bankaccountno">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Bank account name" name="bankaccountname">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select class="form-control show-tick" name="status" required>
+                                        <option value="" disabled selected>Select status</option>
+                                        <option>Success</option>
+                                        <option>Pending</option>
+                                    </select>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-link waves-effect" name="add_withdraw">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <?php include_once('templates/footer.php');?>
