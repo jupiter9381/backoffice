@@ -2,8 +2,15 @@
 	include_once('templates/header.php');
 
 	$page_name = 'summary';
-	$sql = "SELECT * FROM summarylist";
-	$result = $conn->query($sql);
+
+    $merchantid = $_SESSION['merchantid'];
+    if($merchantid == null) $merchantid = "";
+
+    $query = $conn->prepare("SELECT * FROM summarylist where merchantid like ?");
+    $param = '%'.$merchantid.'%';
+    $query->bind_param("s", $param);
+    $query->execute();
+    $result = $query->get_result();
 ?>
 
 <?php include_once('templates/menu.php'); ?>
@@ -33,7 +40,7 @@
         							</tr>
         						</thead>
         						<tbody>
-        							<?php while($row = mysqli_fetch_assoc($result)) {?>
+        							<?php while($row = $result->fetch_assoc()) {?>
         							<tr>
         								<td><?= $row['summarydate'];?></td>
         								<td><?= $row['summarytotalamount'];?></td>

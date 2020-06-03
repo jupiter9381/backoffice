@@ -5,8 +5,11 @@
     $merchantid = $_SESSION['merchantid'];
     $usertype = $_SESSION['usertype'];
     if($merchantid == null) $merchantid = "";
-	$sql = "SELECT * FROM orders where merchantid like '%$merchantid%'";
-	$result = $conn->query($sql);
+    $query = $conn->prepare("SELECT * FROM orders where merchantid like ?");
+    $param = '%'.$merchantid.'%';
+    $query->bind_param("s", $param);
+    $query->execute();
+    $result = $query->get_result();
 
     if(isset($_POST['change_status'])) {
         $orderid = $_POST['orderid'];
@@ -90,7 +93,7 @@
         							</tr>
         						</thead>
         						<tbody>
-        							<?php while($row = mysqli_fetch_assoc($result)) {?>
+        							<?php while($row = $result->fetch_assoc()) {?>
         							<tr>
         								<td><?= $row['merchantorderid'];?></td>
         								<td><?= $row['merchantid'];?></td>

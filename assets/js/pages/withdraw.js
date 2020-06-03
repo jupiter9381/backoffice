@@ -58,7 +58,7 @@ $(function () {
 $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
         var start_dt = startDate.format('YYYY-MM-DD HH:mm:ss');
-        var end_dt = endDate.format('YYYY-MM-DD HH:mm:ss');
+        var end_dt = endDate.format('YYYY-MM-DD 23:59:59');
         if(start_dt <= data[6] && end_dt >= data[6]) return true;
         return false;
     }

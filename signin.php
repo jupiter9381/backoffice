@@ -3,6 +3,7 @@
 	include("config/db.php");
 
 	session_start();
+    $error = '';
 	if(isset($_POST['signin'])) {
         $username = $_POST['username'];
         $password = md5($_POST['password']);
@@ -17,6 +18,8 @@
             $_SESSION['userid'] = $user['id'];
             $_SESSION['merchantid'] = $user['merchantid'];
             header('Location: '.SITE_URL.'dashboard.php');
+        } else {
+            $error = "Username and password are incorrect.";
         }
 	}
 ?>
@@ -73,6 +76,11 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
                     </div>
+                    <?php if($error){?>
+                    <div class="input-group">
+                        <label class="error"><?= $error?></label>
+                    </div>
+                    <?php }?>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
                             <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">

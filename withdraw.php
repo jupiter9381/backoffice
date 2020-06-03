@@ -2,8 +2,15 @@
 	include_once('templates/header.php');
 
 	$page_name = 'withdraw';
-	$sql = "SELECT * FROM payouttransaction" ;
-	$result = $conn->query($sql);
+
+    $merchantid = $_SESSION['merchantid'];
+    if($merchantid == null) $merchantid = "";
+
+    $query = $conn->prepare("SELECT * FROM payouttransaction where merchantid like ?");
+    $param = '%'.$merchantid.'%';
+    $query->bind_param("s", $param);
+    $query->execute();
+    $result = $query->get_result();
 
     if(isset($_POST['add_withdraw'])) {
         $orderid = $_POST['orderid'];
@@ -91,7 +98,7 @@
         							</tr>
         						</thead>
         						<tbody>
-        							<?php while($row = mysqli_fetch_assoc($result)) {?>
+        							<?php while($row = $result->fetch_assoc()) {?>
         							<tr>
         								<td><?= $row['merchantpayoutid'];?></td>
         								<td><?= number_format($row['payoutamount'], 2);?></td>
