@@ -46,7 +46,7 @@
         							<?php while($row = mysqli_fetch_assoc($result)) {?>
         							<tr>
         								<td><?= $row['name'];?></td>
-        								<td><?= $row['charges_fee'];?></td>
+        								<td><?= number_format($row['charges_fee'], 2);?></td>
         								<td><?= $row['email'];?></td>
         							</tr>
         							<?php }?>
@@ -78,7 +78,7 @@
 	                	<div class="col-md-12">
 	                		<div class="form-group">
 	                			<div class="form-line">
-	                				<input type="number" class="form-control" placeholder="Charges Fee" name="charge_fee">
+	                				<input type="number" class="form-control" placeholder="Charges Fee" name="charge_fee" step="0.01">
 	                			</div>	
 	                		</div>
 	                	</div>

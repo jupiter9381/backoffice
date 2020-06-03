@@ -4,14 +4,30 @@
 
     $userid = $_SESSION['userid'];
 
+    $error = "";
     if(isset($_POST['update_profile'])) {
         $userid = $_POST['userid'];
+        $oldpassword = md5($_POST['oldpassword']);
         $password = md5($_POST['password']);
-        $query = $conn->prepare("UPDATE users SET userpassword = ? WHERE id = ?");
-        $query->bind_param("ss", $password, $userid);
+
+        $query = $conn->prepare("SELECT * FROM users WHERE id= ?");
+        $query->bind_param("s", $userid);
         $query->execute();
-        $query->close();
-        header('Location: '.SITE_URL.'dashboard.php');
+        $result = $query->get_result();
+        if($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            if($oldpassword == $user['userpassword']) {
+                $query = $conn->prepare("UPDATE users SET userpassword = ? WHERE id = ?");
+                $query->bind_param("ss", $password, $userid);
+                $query->execute();
+                $query->close();
+                header('Location: '.SITE_URL.'dashboard.php');
+            } else {
+                $error = "Please confirm old password";
+            }
+        }
+
+        
     }
 ?>
 
@@ -32,6 +48,19 @@
                         <form method="POST" id="profile">
                             <input type="hidden" name="userid" value="<?= $userid?>">
                             <div class="row">
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">lock</i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input class="form-control" placeholder="Old password" name="oldpassword" required type="password" minlength="6">
+                                        </div>
+                                        <?php if($error){ ?>
+                                            <label class="error"><?= $error?></label>
+                                        <?php }?>
+                                    </div>
+                                </div>
                                 <div class="col-md-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">

@@ -8,14 +8,28 @@ $(function () {
 		dom: 'Bfrtip',
         responsive: true,
         buttons: [
-            'csv', 'excel', 'pdf',
             {
                 text: 'Add Withdraw',
                 action: function ( e, dt, node, config ) {
                     $("#withdrawModal").modal('show');
                 }
+            },
+            {
+                extend: 'excel',
+                title: 'Excel',
+                filename: function(){
+                    var currentDate = new Date();
+                    var day = currentDate.getDate();
+                    if(day < 10) day = '0' + day;
+                    var month = currentDate.getMonth() + 1;
+                    if(month < 10) month = '0' + month;
+                    var year = currentDate.getFullYear();
+                    var d = year + month + day;
+                    return 'Withdraw ' + d + Math.floor(Math.random() * 1000000);
+                },
             }
         ],
+        "order": [[ 6, "desc" ]],
         "pageLength": 20
     });
 

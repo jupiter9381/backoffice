@@ -2,7 +2,7 @@
 	include_once('templates/header.php');
 
 	$page_name = 'withdraw';
-	$sql = "SELECT * FROM payouttransaction ORDER BY createddatetime" ;
+	$sql = "SELECT * FROM payouttransaction" ;
 	$result = $conn->query($sql);
 
     if(isset($_POST['add_withdraw'])) {
@@ -15,7 +15,7 @@
         $datetime = date('Y-m-d h:i:s');
 
         $query = $conn->prepare("INSERT INTO payouttransaction(merchantpayoutid, payoutamount, payoutstatus, bankname, accountholdername, accountno, createddatetime, updateddatetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $query->bind_param("sssssss", $orderid, $amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
+        $query->bind_param("ssssssss", $orderid, $amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
         $query->execute();
         $query->close();
         header('Location: '.SITE_URL.'withdraw.php');
@@ -94,7 +94,7 @@
         							<?php while($row = mysqli_fetch_assoc($result)) {?>
         							<tr>
         								<td><?= $row['merchantpayoutid'];?></td>
-        								<td><?= $row['payoutamount'];?></td>
+        								<td><?= number_format($row['payoutamount'], 2);?></td>
         								<td><?= $row['bankname'];?></td>
         								<td><?= $row['accountno'];?></td>
         								<td><?= $row['accountholdername'];?></td>
@@ -131,7 +131,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="number" class="form-control" placeholder="Withdraw amount" name="amount">
+                                    <input type="number" class="form-control" placeholder="Withdraw amount" name="amount" step="0.01">
                                 </div>  
                             </div>
                         </div>
