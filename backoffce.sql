@@ -29,14 +29,16 @@ CREATE TABLE `merchants` (
   `email` varchar(50) DEFAULT NULL,
   `charges_fee` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000004 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1000007 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `merchants` */
 
 insert  into `merchants`(`id`,`name`,`shortname`,`created_date`,`created_by`,`email`,`charges_fee`) values 
 (1000001,'mch1','merchant','2020-05-29 08:55:20',NULL,'merchant1@example.com',5),
 (1000002,'mch2',NULL,'2020-05-31 11:24:20',NULL,'merchant2@example.com',8),
-(1000003,'mch3',NULL,'2020-05-31 11:24:54',NULL,'merchant3@example.com',7);
+(1000003,'mch3',NULL,'2020-05-31 11:24:54',NULL,'merchant3@example.com',7),
+(1000005,'mch4',NULL,'2020-06-02 11:17:25',NULL,'merchant4@example.com',6),
+(1000006,'mch5',NULL,'2020-06-03 11:06:36',NULL,'merchant5@example.com',4.23);
 
 /*Table structure for table `orders` */
 
@@ -63,43 +65,43 @@ CREATE TABLE `orders` (
 
 insert  into `orders`(`orderid`,`merchantorderid`,`merchantid`,`orderstatus`,`orderamount`,`firstname`,`lastname`,`bankaccount`,`createddatetime`,`createdby`,`updateddatetime`,`updatedby`,`userip`) values 
 (1000000,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
-(1000001,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000002,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000001,'5ed0a92dhjk713k9x7','1000002','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
+(1000002,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000003,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000004,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
-(1000005,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000004,'5edfgjhfjfghfgh13k9x7','1000002','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000005,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000006,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000007,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
-(1000008,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000007,'5edfgjhfjfghfgh13k9x7','1000002','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000008,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000009,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000010,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
-(1000011,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000010,'5edfgjhfjfghfgh13k9x7','1000002','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000011,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000012,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000013,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
-(1000014,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000013,'5edfgjhfjfghfgh13k9x7','1000002','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000014,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000015,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000016,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
-(1000017,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
+(1000016,'5edfgjhfjfghfgh13k9x7','1000002','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000017,'5ed0a955f0jkhg1gkagl','1000003','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000018,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000019,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000019,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000020,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000021,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000022,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000022,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000023,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000024,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000025,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000025,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000026,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000027,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000028,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000028,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000029,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000030,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000031,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000031,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000032,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000033,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000034,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000034,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000035,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000036,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000037,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000037,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000038,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000039,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
 (1000040,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
@@ -114,22 +116,22 @@ insert  into `orders`(`orderid`,`merchantorderid`,`merchantid`,`orderstatus`,`or
 (1000049,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000050,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000051,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000052,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000052,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000053,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000054,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000055,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000055,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000056,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000057,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000058,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000058,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000059,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000060,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000061,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000061,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000062,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000063,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000064,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000064,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000065,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000066,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000067,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
+(1000067,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000068,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000069,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
 (1000070,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
@@ -219,7 +221,7 @@ insert  into `orders`(`orderid`,`merchantorderid`,`merchantid`,`orderstatus`,`or
 (1000154,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9'),
 (1000155,'5ed0a955f0jkhg1gkagl','1000001','Pending','10.00','Johnson','Mark','John HSBC','2020-05-22 02:44:17','apiProgram',NULL,NULL,'202.100.200.9'),
 (1000156,'5ed0a92dhjk713k9x7','1000001','Success','200.00','Angel','K','John HSBC','2020-05-22 15:44:17','apiProgram','2020-05-22 15:50:17','1000001','192.100.20.9'),
-(1000157,'5edfgjhfjfghfgh13k9x7','1000001','Pending','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9');
+(1000157,'5edfgjhfjfghfgh13k9x7','1000001','Success','10.00','Johnson','K','John HSBC','2020-05-22 15:44:17','apiProgram',NULL,NULL,'192.100.20.9');
 
 /*Table structure for table `payouttransaction` */
 
@@ -241,7 +243,7 @@ CREATE TABLE `payouttransaction` (
   `updateddatetime` varchar(150) DEFAULT NULL,
   `updatedby` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`payoutid`)
-) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `payouttransaction` */
 
@@ -375,7 +377,12 @@ insert  into `payouttransaction`(`payoutid`,`merchantpayoutid`,`payoutamount`,`p
 (127,'202005282128005072024','1000.00','Success','工商银行','湖北省','马园丹','6228480086153042000001','湖北省','ICBC','2020-05-29 08:55:20','system','2020-05-29 09:55:20','system'),
 (128,'202005282128005072076','500.00','Pending','工商银行','湖北省','马园丹','6228480086153042000001','湖北省','ICBC','2020-05-29 08:55:20','system',NULL,NULL),
 (129,'202005282128005072024','1000.00','Success','工商银行','湖北省','马园丹','6228480086153042000001','湖北省','ICBC','2020-05-29 08:55:20','system','2020-05-29 09:55:20','system'),
-(130,'202005282128005072076','500.00','Pending','工商银行','湖北省','马园丹','6228480086153042000001','湖北省','ICBC','2020-05-29 08:55:20','system',NULL,NULL);
+(130,'202005282128005072076','500.00','Pending','工商银行','湖北省','马园丹','6228480086153042000001','湖北省','ICBC','2020-05-29 08:55:20','system',NULL,NULL),
+(131,'20200528123121231','160','Pending','aaa',NULL,'bcd','123123123',NULL,NULL,'2020-06-02 11:37:12',NULL,NULL,NULL),
+(132,'20200528123121232','350','Pending','aaa',NULL,'bcds','13123123123123123',NULL,NULL,'2020-06-03 11:16:57',NULL,'2020-06-03 11:16:57',NULL),
+(133,'20200528123121232','231.23','Success','aaa',NULL,'bcds','13123123123123123',NULL,NULL,'2020-06-03 11:17:13',NULL,'2020-06-03 11:17:13',NULL),
+(134,'20200528123121232','231.23','Success','aaa',NULL,'bcds','13123123123123123',NULL,NULL,'2020-06-03 11:17:15',NULL,'2020-06-03 11:17:15',NULL),
+(135,'20200528123121232','231.23','Success','aaa',NULL,'bcds','13123123123123123',NULL,NULL,'2020-06-03 11:17:24',NULL,'2020-06-03 11:17:24',NULL);
 
 /*Table structure for table `summarylist` */
 
@@ -439,8 +446,8 @@ CREATE TABLE `users` (
 
 insert  into `users`(`id`,`username`,`userpassword`,`usertype`,`created_date`,`last_login_time`,`change_password_time`,`merchantid`) values 
 (1000000,'jupiter','0192023a7bbd73250516f069df18b500','superadmin','2020-05-29 07:42:54','2020-05-29 07:42:57','2020-05-29 07:43:00',NULL),
-(1000001,'jupiter2','0192023a7bbd73250516f069df18b500','user',NULL,NULL,NULL,1000001),
-(1000003,'jupiter3','0192023a7bbd73250516f069df18b500','admin','2020-06-01 12:07:00',NULL,NULL,1000001);
+(1000001,'jupiter2','c93ccd78b2076528346216b3b2f701e6','admin',NULL,NULL,NULL,1000001),
+(1000003,'jupiter3','0192023a7bbd73250516f069df18b500','user','2020-06-01 12:07:00',NULL,NULL,1000002);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
