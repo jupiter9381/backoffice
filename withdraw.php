@@ -131,35 +131,35 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Order Id" name="orderid">
+                                    <input type="text" class="form-control" placeholder="Order Id" name="orderid" required>
                                 </div>  
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="number" class="form-control" placeholder="Withdraw amount" name="amount" step="0.01">
+                                    <input type="number" class="form-control" placeholder="Withdraw amount" name="amount" step="0.01" required>
                                 </div>  
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Bank name" name="bankname">
+                                    <input type="text" class="form-control" placeholder="Bank name" name="bankname" required>
                                 </div>  
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Bank account number" name="bankaccountno">
+                                    <input type="text" class="form-control" placeholder="Bank account number" name="bankaccountno" required>
                                 </div>  
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Bank account name" name="bankaccountname">
+                                    <input type="text" class="form-control" placeholder="Bank account name" name="bankaccountname" required>
                                 </div>  
                             </div>
                         </div>
