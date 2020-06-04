@@ -2,6 +2,10 @@
 	include_once('templates/header.php');
 	$page_name = "user";
 
+	if($_SESSION['usertype'] != 'superadmin') {
+		header('Location: '.SITE_URL.'dashboard.php');
+	}
+	
 	$sql = "SELECT * FROM users LEFT JOIN merchants ON users.merchantid = merchants.id WHERE usertype != 'superadmin'";
 	$result = $conn->query($sql);
 

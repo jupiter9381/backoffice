@@ -30,13 +30,15 @@
                         <span>Home</span>
                     </a>
                 </li>
+                <?php if($_SESSION['usertype'] == "superadmin") {?> 
                 <li class="<?php if($page_name == 'merchant') echo 'active';?>">
                     <a href="<?= SITE_URL?>merchant.php">
                         <i class="material-icons">supervisor_account</i>
                         <span>Merchant</span>
                     </a>
                 </li>
-                <?php if($_SESSION['usertype'] != "user") {?> 
+                <?php }?>
+                <?php if($_SESSION['usertype'] == "superadmin") {?> 
                 <li class="<?php if($page_name == 'user') echo 'active';?>">
                     <a href="<?= SITE_URL?>user.php">
                         <i class="material-icons">supervisor_account</i>

@@ -2,6 +2,9 @@
 	include_once('templates/header.php');
 	$page_name = "merchant";
 
+	if($_SESSION['usertype'] != 'superadmin') {
+		header('Location: '.SITE_URL.'dashboard.php');
+	}
 	$sql = "SELECT * FROM merchants";
 	$result = $conn->query($sql);
 
