@@ -5,7 +5,7 @@
 	$sql = "SELECT * FROM merchants";
 	$result = $conn->query($sql);
 
-	if(isset($_POST['add_merchant'])) {
+	if(isset($_POST['merchantname'])) {
 		$merchantname = $_POST['merchantname'];
 		$charges_fee = $_POST['charge_fee'];
 		$merchantemail = $_POST['merchantemail'];
@@ -65,7 +65,7 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="defaultModalLabel">Merchant Form</h4>
             </div>
-            <form method='POST'>
+            <form method='POST' id="merchantup">
 	            <div class="modal-body">
 	                <div class="row clearfix">
 	                	<div class="col-md-12">
@@ -73,6 +73,7 @@
 	                			<div class="form-line">
 	                				<input type="text" class="form-control" placeholder="Merchant Name" name="merchantname">
 	                			</div>	
+	                			<label class="error d-none"></label>
 	                		</div>
 	                	</div>
 	                	<div class="col-md-12">
@@ -92,7 +93,7 @@
 	                </div>
 	            </div>
 	            <div class="modal-footer">
-	                <button type="submit" class="btn btn-link waves-effect" name="add_merchant">SAVE CHANGES</button>
+	                <button type="button" class="btn btn-link waves-effect add_merchant" name="add_merchant">ADD MERCHANT</button>
 	                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
 	            </div>
         	</form>

@@ -5,7 +5,7 @@
 	$sql = "SELECT * FROM users LEFT JOIN merchants ON users.merchantid = merchants.id WHERE usertype != 'superadmin'";
 	$result = $conn->query($sql);
 
-	if(isset($_POST['add_user'])) {
+	if(isset($_POST['merchant'])) {
 		$merchant = $_POST['merchant'];
 		$usertype = $_POST['usertype'];
 		$username = $_POST['username'];
@@ -102,7 +102,8 @@
 	                		<div class="form-group">
 	                			<div class="form-line">
 	                				<input type="text" class="form-control" placeholder="Username" name="username" required>
-	                			</div>	
+	                			</div>
+	                			<label class="error d-none"></label>
 	                		</div>
 	                	</div>
 	                	<div class="col-md-12">
@@ -122,7 +123,7 @@
 	                </div>
 	            </div>
 	            <div class="modal-footer">
-	                <button type="submit" class="btn btn-link waves-effect" name="add_user">SAVE CHANGES</button>
+	                <button type="button" class="btn btn-link waves-effect add_user" name="add_user">ADD USER</button>
 	                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
 	            </div>
         	</form>

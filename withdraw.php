@@ -21,8 +21,8 @@
         $status = $_POST['status'];
         $datetime = date('Y-m-d h:i:s');
 
-        $query = $conn->prepare("INSERT INTO payouttransaction(merchantpayoutid, payoutamount, payoutstatus, bankname, accountholdername, accountno, createddatetime, updateddatetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $query->bind_param("ssssssss", $orderid, $amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
+        $query = $conn->prepare("INSERT INTO payouttransaction(merchantid, merchantpayoutid, payoutamount, payoutstatus, bankname, accountholdername, accountno, createddatetime, updateddatetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query->bind_param("sssssssss", $merchantid, $orderid,$amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
         $query->execute();
         $query->close();
         header('Location: '.SITE_URL.'withdraw.php');

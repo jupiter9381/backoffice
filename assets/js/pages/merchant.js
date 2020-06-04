@@ -31,4 +31,21 @@ $(function () {
             $(element).parents('.form-group').append(error);
         }
     });
+
+    $('.add_merchant').click(function(e) {
+        $.ajax({
+            type: "POST",
+            url: './functions.php',
+            data: {merchantname: $("input[name='merchantname']").val(), method: 'add_merchant'},
+            dataType: 'json',
+            success: function(result) {
+                if(result['status'] == false) {
+                    $(".error").html(result['msg']);
+                    $(".error").removeClass('d-none');
+                } else {
+                    $("#merchantup").submit();
+                }
+            }
+        });
+    })
 });

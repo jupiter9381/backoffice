@@ -34,4 +34,21 @@ $(function () {
             $(element).parents('.form-group').append(error);
         }
     });
+
+    $('.add_user').click(function(e) {
+        $.ajax({
+            type: "POST",
+            url: './functions.php',
+            data: {username: $("input[name='username']").val(), method: 'add_user'},
+            dataType: 'json',
+            success: function(result) {
+                if(result['status'] == false) {
+                    $(".error").html(result['msg']);
+                    $(".error").removeClass('d-none');
+                } else {
+                    $("#userup").submit();
+                }
+            }
+        });
+    })
 });
