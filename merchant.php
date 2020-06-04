@@ -9,7 +9,7 @@
 		$merchantname = $_POST['merchantname'];
 		$charges_fee = $_POST['charge_fee'];
 		$merchantemail = $_POST['merchantemail'];
-		$datetime = date('Y-m-d h:i:s');
+		$datetime = date('Y-m-d H:i:s');
 		$query = $conn->prepare("INSERT INTO merchants(name, created_date, email, charges_fee) VALUES(?, ?, ?, ?)");
 		$query->bind_param("ssss", $merchantname, $datetime, $merchantemail, $charges_fee);
 		$query->execute();

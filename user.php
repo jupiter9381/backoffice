@@ -10,7 +10,7 @@
 		$usertype = $_POST['usertype'];
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
-		$datetime = date('Y-m-d h:i:s');
+		$datetime = date('Y-m-d H:i:s');
 		$query = $conn->prepare("INSERT INTO users(username, userpassword, usertype, merchantid, created_date) VALUES (?, ?, ?, ?, ?)");
 		$query->bind_param("sssss", $username, $password, $usertype, $merchant, $datetime);
 		$query->execute();

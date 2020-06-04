@@ -7,7 +7,7 @@
         $password = md5($_POST['password']);
         $useremail = $_POST['email'];
         $merchant = $_POST['merchant'];
-        $sql = "INSERT INTO users(username, userpassword, usertype, merchantid, created_date) VALUES ('$username', '$password', 'user', '$merchant', date('Y-m-d h:i:s'))";
+        $sql = "INSERT INTO users(username, userpassword, usertype, merchantid, created_date) VALUES ('$username', '$password', 'user', '$merchant', date('Y-m-d H:i:s'))";
         $conn->query($sql);
         header('Location: '.SITE_URL.'signin.php');
     }

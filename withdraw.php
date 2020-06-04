@@ -19,7 +19,7 @@
         $bankaccountno = $_POST['bankaccountno'];
         $bankaccountname = $_POST['bankaccountname'];
         $status = $_POST['status'];
-        $datetime = date('Y-m-d h:i:s');
+        $datetime = date('Y-m-d H:i:s');
 
         $query = $conn->prepare("INSERT INTO payouttransaction(merchantid, merchantpayoutid, payoutamount, payoutstatus, bankname, accountholdername, accountno, createddatetime, updateddatetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $query->bind_param("sssssssss", $merchantid, $orderid,$amount, $status, $bankname, $bankaccountname, $bankaccountno, $datetime, $datetime);
